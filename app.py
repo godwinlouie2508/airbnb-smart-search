@@ -106,7 +106,6 @@ st.markdown("""
     /* Target all wrapper divs for rounded corners */
     .stTextInput > div > div {
         border-radius: 50px !important;
-        overflow: hidden !important;
     }
 
     .stTextInput > div {
@@ -142,8 +141,8 @@ st.markdown("""
     /* Match search input height with button - works in deployed apps */
     .stTextInput > div > div > input {
         height: 56px !important;
-        line-height: 56px !important;
-        padding: 0 24px !important;
+        line-height: normal !important;
+        padding: 16px 24px !important;
         box-sizing: border-box !important;
         font-size: 1rem !important;
     }
@@ -159,9 +158,7 @@ st.markdown("""
 
     .stTextInput > div > div {
         min-height: 56px !important;
-        max-height: 56px !important;
-        height: 56px !important;
-        overflow: hidden !important;
+        height: auto !important;
         display: flex !important;
         align-items: center !important;
     }
