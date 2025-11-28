@@ -920,8 +920,7 @@ def main():
 
     # Sidebar filters - Optimized for no scrolling
     with st.sidebar:
-        # Add SF logo at the top, aligned with Airbnb logo
-        st.markdown('<div style="padding-top: 24px;"></div>', unsafe_allow_html=True)
+        # Add SF logo at the top
         st.image("SF_logo.png", width=144)
 
         st.markdown("## Search Filters")
