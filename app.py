@@ -912,25 +912,26 @@ def main():
     if 'query' not in st.session_state:
         st.session_state.query = ""
 
-    # Header with logo on left and search bar on right
+    # Header with logo and search
     st.markdown('<div style="padding-top: 24px;"></div>', unsafe_allow_html=True)
-    col_logo, col_search = st.columns([1, 4], gap="medium", vertical_alignment="center")
 
-    with col_logo:
-        st.image("Airbnb-Logo.png", width=180)
+    # Logo
+    st.image("Airbnb-Logo.png", width=180)
 
-    with col_search:
-        col_input, col_button = st.columns([5, 1], gap="small", vertical_alignment="center")
-        with col_input:
-            query = st.text_input(
-                "🔍 Search for listings",
-                placeholder="e.g., cozy apartment near downtown with parking and great views...",
-                label_visibility="collapsed",
-                value=st.session_state.query,
-                key="search_input"
-            )
-        with col_button:
-            search_button = st.button("Search", type="primary", use_container_width=True)
+    # Search section with proper alignment
+    col_input, col_button = st.columns([5, 1], gap="small", vertical_alignment="bottom")
+
+    with col_input:
+        query = st.text_input(
+            "🔍 Search for listings",
+            placeholder="e.g., cozy apartment near downtown with parking and great views...",
+            label_visibility="collapsed",
+            value=st.session_state.query,
+            key="search_input"
+        )
+
+    with col_button:
+        search_button = st.button("Search", type="primary", use_container_width=True)
 
     # Update session state with current query
     st.session_state.query = query
