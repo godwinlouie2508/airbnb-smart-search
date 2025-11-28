@@ -856,14 +856,13 @@ def main():
         st.session_state.query = ""
 
     # Header with logo on left and search bar on right
+    st.markdown('<div style="padding-top: 24px;"></div>', unsafe_allow_html=True)
     col_logo, col_search = st.columns([1, 4], gap="medium")
 
     with col_logo:
-        st.markdown('<div style="padding-top: 12px;"></div>', unsafe_allow_html=True)
         st.image("Airbnb-Logo.png", width=180)
 
     with col_search:
-        st.markdown('<div style="padding-top: 12px;"></div>', unsafe_allow_html=True)
         col_input, col_button = st.columns([5, 1], gap="small")
         with col_input:
             query = st.text_input(
