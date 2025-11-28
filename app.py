@@ -192,6 +192,12 @@ st.markdown("""
         display: none;
     }
 
+    /* Use monospace font for price numbers in radio buttons for better alignment */
+    .stRadio > div > label > div:last-child {
+        font-variant-numeric: tabular-nums;
+        letter-spacing: 0.02em;
+    }
+
     /* Selectbox - Airbnb style */
     .stSelectbox > label {
         font-size: 0.875rem;
@@ -205,6 +211,16 @@ st.markdown("""
         border-radius: 8px;
         padding: 4px;
         box-shadow: 0 1px 2px rgba(0,0,0,0.08);
+    }
+
+    /* Ensure selectbox text is visible */
+    .stSelectbox > div > div > div {
+        color: #222222 !important;
+    }
+
+    .stSelectbox option {
+        color: #222222 !important;
+        font-size: 0.875rem !important;
     }
 
     /* Slider - Airbnb style */
@@ -845,7 +861,7 @@ def main():
         cluster_descriptions = {
             "All": "All ranges",
             "Budget": f"≤ ${q33:.0f}",
-            "Standard": f"${q33:.0f}-${q67:.0f}",
+            "Standard": f"${q33:.0f} - ${q67:.0f}",
             "Luxury": f"> ${q67:.0f}"
         }
 
