@@ -151,6 +151,29 @@ st.markdown("""
         align-items: center !important;
     }
 
+    /* Ensure all child elements in header are vertically centered */
+    .header-section [data-testid="column"] > div {
+        display: flex !important;
+        align-items: center !important;
+    }
+
+    /* Align logo image */
+    .header-section img {
+        vertical-align: middle !important;
+    }
+
+    /* Align text input container */
+    .header-section .stTextInput {
+        display: flex !important;
+        align-items: center !important;
+    }
+
+    /* Align button container */
+    .header-section .stButton {
+        display: flex !important;
+        align-items: center !important;
+    }
+
     /* Radio buttons - Airbnb style */
     .stRadio > label {
         font-size: 0.875rem;
