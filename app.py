@@ -142,9 +142,10 @@ st.markdown("""
     /* Match search input height with button */
     .stTextInput > div > div > input {
         height: 62px !important;
-        line-height: 62px !important;
-        padding: 0 24px !important;
+        line-height: normal !important;
+        padding: 18px 24px !important;
         box-sizing: border-box !important;
+        font-size: 1rem !important;
     }
 
     /* Remove extra spacing from input wrapper */
@@ -157,11 +158,6 @@ st.markdown("""
         max-height: 62px !important;
         height: 62px !important;
         overflow: hidden !important;
-    }
-
-    /* Ensure the outer wrapper also respects height */
-    .stTextInput {
-        height: 62px !important;
     }
 
 
