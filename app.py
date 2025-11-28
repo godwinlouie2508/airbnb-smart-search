@@ -235,21 +235,23 @@ st.markdown("""
         display: none;
     }
 
-    /* Fix radio button text size consistency - use monospace for consistent sizing */
+    /* Radio button text - consistent with sidebar styling */
     .stRadio > div > label > div:last-child,
     .stRadio > div > label > div:last-child *,
     .stRadio > div > label span,
-    .stRadio > div > label p {
+    .stRadio > div > label p,
+    .stRadio [role="radiogroup"] label,
+    .stRadio [role="radiogroup"] label > div {
         font-size: 0.875rem !important;
-        line-height: 1.2 !important;
         font-weight: 500 !important;
-        font-family: 'Courier New', monospace !important;
+        color: #222222 !important;
+        line-height: 1.6 !important;
     }
 
-    /* Prevent dollar signs from affecting size */
-    .stRadio [role="radiogroup"] label {
-        font-size: 0.875rem !important;
-        font-family: 'Courier New', monospace !important;
+    /* Ensure all text nodes inherit same styling */
+    .stRadio [data-baseweb="radio"] * {
+        font-size: inherit !important;
+        font-weight: inherit !important;
     }
 
     /* Selectbox - Airbnb style */
