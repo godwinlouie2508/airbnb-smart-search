@@ -235,10 +235,19 @@ st.markdown("""
         display: none;
     }
 
-    /* Fix radio button text size consistency */
-    .stRadio > div > label > div:last-child {
+    /* Fix radio button text size consistency - force uniform sizing */
+    .stRadio > div > label > div:last-child,
+    .stRadio > div > label > div:last-child *,
+    .stRadio > div > label span,
+    .stRadio > div > label p {
         font-size: 0.875rem !important;
         line-height: 1.2 !important;
+        font-weight: 500 !important;
+    }
+
+    /* Prevent dollar signs from affecting size */
+    .stRadio [role="radiogroup"] label {
+        font-size: 0.875rem !important;
     }
 
     /* Selectbox - Airbnb style */
