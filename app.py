@@ -12,7 +12,7 @@ warnings.filterwarnings('ignore')
 # ============================================================================
 st.set_page_config(
     page_title="Airbnb Smart Search & Price Intelligence",
-    page_icon="🔍",
+    page_icon="Airbnb-Logo.png",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -139,6 +139,18 @@ st.markdown("""
         display: none !important;
     }
 
+    /* Match search input height with button */
+    .stTextInput > div > div > input {
+        height: 48px !important;
+        padding: 12px 24px !important;
+    }
+
+    /* Vertical align logo, search box and button */
+    [data-testid="column"] {
+        display: flex !important;
+        align-items: center !important;
+    }
+
     /* Radio buttons - Airbnb style */
     .stRadio > label {
         font-size: 0.875rem;
@@ -217,16 +229,20 @@ st.markdown("""
         background: linear-gradient(to right, #E61E4D 0%, #E31C5F 50%, #D70466 100%) !important;
         color: #FFFFFF !important;
         border-radius: 8px !important;
-        padding: 14px 24px !important;
+        padding: 12px 24px !important;
+        height: 48px !important;
         font-weight: 600 !important;
         font-size: 1rem !important;
         border: none !important;
         box-shadow: 0 1px 2px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.08) !important;
         transition: all 0.2s ease !important;
         width: 100% !important;
-        display: inline-block !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
         white-space: nowrap !important;
         text-align: center !important;
+        line-height: 1 !important;
     }
 
     .stButton > button:hover {
