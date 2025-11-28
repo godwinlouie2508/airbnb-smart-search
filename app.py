@@ -4,15 +4,22 @@ import numpy as np
 import pickle
 from sentence_transformers import SentenceTransformer
 from sklearn.neighbors import NearestNeighbors
+from PIL import Image
 import warnings
 warnings.filterwarnings('ignore')
 
 # ============================================================================
 # PAGE CONFIGURATION
 # ============================================================================
+# Load page icon using PIL for better compatibility
+try:
+    page_icon = Image.open("Airbnb-Emblem.png")
+except:
+    page_icon = "🏠"  # Fallback to emoji if file not found
+
 st.set_page_config(
     page_title="Airbnb Smart Search & Price Intelligence",
-    page_icon="Airbnb-Emblem.png",
+    page_icon=page_icon,
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -121,9 +128,21 @@ st.markdown("""
         margin-bottom: 0 !important;
     }
 
-    /* Make logo non-clickable */
+    /* Make logo non-clickable and non-selectable */
     .stImage {
         pointer-events: none !important;
+        user-select: none !important;
+        -webkit-user-select: none !important;
+        -moz-user-select: none !important;
+        -ms-user-select: none !important;
+    }
+
+    .stImage img {
+        pointer-events: none !important;
+        user-select: none !important;
+        -webkit-user-select: none !important;
+        -moz-user-select: none !important;
+        -ms-user-select: none !important;
     }
 
     /* Remove any conflicting borders */
