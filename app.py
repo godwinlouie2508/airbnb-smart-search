@@ -6,28 +6,38 @@ from sentence_transformers import SentenceTransformer
 from sklearn.neighbors import NearestNeighbors
 from PIL import Image
 import warnings
+import os
 warnings.filterwarnings('ignore')
 
 # ============================================================================
 # PAGE CONFIGURATION
 # ============================================================================
-# Load page icon using PIL for better compatibility
-try:
-    page_icon_img = Image.open("Airbnb-Emblem.png")
-    # Resize to appropriate favicon size (32x32 or 64x64)
-    page_icon_img = page_icon_img.resize((64, 64), Image.Resampling.LANCZOS)
-    # Convert to RGB if needed (remove alpha channel for better compatibility)
-    if page_icon_img.mode in ('RGBA', 'LA', 'P'):
-        background = Image.new('RGB', page_icon_img.size, (255, 255, 255))
-        if page_icon_img.mode == 'P':
-            page_icon_img = page_icon_img.convert('RGBA')
-        background.paste(page_icon_img, mask=page_icon_img.split()[-1] if page_icon_img.mode == 'RGBA' else None)
-        page_icon = background
-    else:
-        page_icon = page_icon_img
-except Exception as e:
-    print(f"Error loading page icon: {e}")
-    page_icon = "🏠"  # Fallback to emoji if file not found
+# Load page icon - try ICO first, then PNG, fallback to emoji
+icon_loaded = False
+
+# Try ICO file (standard favicon format)
+if os.path.exists("favicon.ico"):
+    try:
+        page_icon = Image.open("favicon.ico")
+        icon_loaded = True
+        print("Loaded favicon.ico")
+    except Exception as e:
+        print(f"Error loading favicon.ico: {e}")
+
+# Try PNG if ICO failed
+if not icon_loaded and os.path.exists("Airbnb-Emblem.png"):
+    try:
+        page_icon = Image.open("Airbnb-Emblem.png")
+        page_icon = page_icon.resize((32, 32), Image.Resampling.LANCZOS)
+        icon_loaded = True
+        print("Loaded Airbnb-Emblem.png")
+    except Exception as e:
+        print(f"Error loading PNG: {e}")
+
+# Fallback to emoji
+if not icon_loaded:
+    page_icon = "🏠"
+    print("Using emoji fallback")
 
 st.set_page_config(
     page_title="Airbnb Smart Search & Price Intelligence",
