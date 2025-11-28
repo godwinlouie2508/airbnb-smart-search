@@ -145,8 +145,8 @@ st.markdown("""
         padding: 12px 24px !important;
     }
 
-    /* Vertical align logo, search box and button */
-    [data-testid="column"] {
+    /* Vertical align logo, search box and button in header */
+    .header-section [data-testid="column"] {
         display: flex !important;
         align-items: center !important;
     }
@@ -872,7 +872,7 @@ def main():
         st.session_state.query = ""
 
     # Header with logo on left and search bar on right
-    st.markdown('<div style="padding-top: 24px;"></div>', unsafe_allow_html=True)
+    st.markdown('<div class="header-section" style="padding-top: 24px;">', unsafe_allow_html=True)
     col_logo, col_search = st.columns([1, 4], gap="medium")
 
     with col_logo:
@@ -890,6 +890,8 @@ def main():
             )
         with col_button:
             search_button = st.button("Search", type="primary", use_container_width=True)
+
+    st.markdown('</div>', unsafe_allow_html=True)
 
     # Update session state with current query
     st.session_state.query = query
