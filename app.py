@@ -145,34 +145,6 @@ st.markdown("""
         padding: 12px 24px !important;
     }
 
-    /* Vertical align logo, search box and button in header */
-    .header-section [data-testid="column"] {
-        display: flex !important;
-        align-items: center !important;
-    }
-
-    /* Ensure all child elements in header are vertically centered */
-    .header-section [data-testid="column"] > div {
-        display: flex !important;
-        align-items: center !important;
-    }
-
-    /* Align logo image */
-    .header-section img {
-        vertical-align: middle !important;
-    }
-
-    /* Align text input container */
-    .header-section .stTextInput {
-        display: flex !important;
-        align-items: center !important;
-    }
-
-    /* Align button container */
-    .header-section .stButton {
-        display: flex !important;
-        align-items: center !important;
-    }
 
     /* Radio buttons - Airbnb style */
     .stRadio > label {
@@ -895,14 +867,14 @@ def main():
         st.session_state.query = ""
 
     # Header with logo on left and search bar on right
-    st.markdown('<div class="header-section" style="padding-top: 24px;">', unsafe_allow_html=True)
-    col_logo, col_search = st.columns([1, 4], gap="medium")
+    st.markdown('<div style="padding-top: 24px;"></div>', unsafe_allow_html=True)
+    col_logo, col_search = st.columns([1, 4], gap="medium", vertical_alignment="center")
 
     with col_logo:
         st.image("Airbnb-Logo.png", width=180)
 
     with col_search:
-        col_input, col_button = st.columns([5, 1], gap="small")
+        col_input, col_button = st.columns([5, 1], gap="small", vertical_alignment="center")
         with col_input:
             query = st.text_input(
                 "🔍 Search for listings",
@@ -913,8 +885,6 @@ def main():
             )
         with col_button:
             search_button = st.button("Search", type="primary", use_container_width=True)
-
-    st.markdown('</div>', unsafe_allow_html=True)
 
     # Update session state with current query
     st.session_state.query = query
