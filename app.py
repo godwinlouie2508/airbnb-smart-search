@@ -920,6 +920,10 @@ def main():
 
     # Sidebar filters - Optimized for no scrolling
     with st.sidebar:
+        # Add SF logo at the top
+        st.image("SF_logo.png", width=120)
+        st.markdown('<div style="margin-bottom: 24px;"></div>', unsafe_allow_html=True)
+
         st.markdown("## Search Filters")
 
         # Cluster filter
