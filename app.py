@@ -224,6 +224,17 @@ st.markdown("""
         font-size: 0.875rem !important;
     }
 
+    /* Fix selectbox selected value visibility */
+    .stSelectbox [data-baseweb="select"] > div {
+        color: #222222 !important;
+        font-size: 0.875rem !important;
+        font-weight: 500 !important;
+    }
+
+    .stSelectbox [data-baseweb="select"] span {
+        color: #222222 !important;
+    }
+
     /* Slider - Airbnb style */
     .stSlider > label {
         font-size: 0.875rem;
