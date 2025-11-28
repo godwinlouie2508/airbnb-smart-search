@@ -912,14 +912,13 @@ def main():
     if 'query' not in st.session_state:
         st.session_state.query = ""
 
-    # Header with logo and search
+    # Header with logo and search on same row
     st.markdown('<div style="padding-top: 24px;"></div>', unsafe_allow_html=True)
 
-    # Logo
-    st.image("Airbnb-Logo.png", width=180)
+    col_logo, col_input, col_button = st.columns([1, 4, 0.8], gap="medium", vertical_alignment="bottom")
 
-    # Search section with proper alignment
-    col_input, col_button = st.columns([5, 1], gap="small", vertical_alignment="bottom")
+    with col_logo:
+        st.image("Airbnb-Logo.png", width=180)
 
     with col_input:
         query = st.text_input(
