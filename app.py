@@ -1092,7 +1092,7 @@ def main():
         """, unsafe_allow_html=True)
 
         # Add padding before popular searches section
-        st.markdown('<div style="padding-top: 48px;"></div>', unsafe_allow_html=True)
+        st.markdown('<div style="padding-top: 80px;"></div>', unsafe_allow_html=True)
 
         # Show sample searches
         st.markdown('<h2 class="section-header" style="text-align: center;">💡 Try These Popular Searches</h2>', unsafe_allow_html=True)
