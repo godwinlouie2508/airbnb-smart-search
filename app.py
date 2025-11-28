@@ -86,15 +86,19 @@ st.markdown("""
         line-height: 1.5;
     }
 
-    /* Search Box - Airbnb style with fully rounded corners */
+    /* Search Box - Airbnb style with fully rounded corners and proper height */
     .stTextInput > div > div > input {
+        height: 56px !important;
+        min-height: 56px !important;
         border: 1px solid #DDDDDD !important;
         border-radius: 50px !important;
-        padding: 16px 24px !important;
+        padding: 0 24px !important;
+        line-height: 56px !important;
         font-size: 1rem !important;
         color: #222222 !important;
         box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important;
         transition: all 0.2s ease !important;
+        box-sizing: border-box !important;
     }
 
     .stTextInput > div > div > input:focus {
@@ -103,13 +107,18 @@ st.markdown("""
         outline: none !important;
     }
 
-    /* Target all wrapper divs for rounded corners */
+    /* Target all wrapper divs for rounded corners and height */
     .stTextInput > div > div {
         border-radius: 50px !important;
+        min-height: 56px !important;
+        height: auto !important;
     }
 
     .stTextInput > div {
         border-radius: 50px !important;
+        min-height: 56px !important;
+        height: auto !important;
+        margin-bottom: 0 !important;
     }
 
     /* Remove any conflicting borders */
@@ -118,10 +127,7 @@ st.markdown("""
     }
 
     .stTextInput > label {
-        font-size: 0.875rem;
-        font-weight: 600;
-        color: #222222;
-        margin-bottom: 8px;
+        display: none !important;
     }
 
     /* Hide "Press Enter to apply" instruction */
@@ -138,32 +144,7 @@ st.markdown("""
         display: none !important;
     }
 
-    /* Match search input height with button - works in deployed apps */
-    .stTextInput > div > div > input {
-        height: 56px !important;
-        line-height: normal !important;
-        padding: 16px 24px !important;
-        box-sizing: border-box !important;
-        font-size: 1rem !important;
-    }
-
-    /* Remove extra spacing from input wrapper and label */
-    .stTextInput > div {
-        margin-bottom: 0 !important;
-    }
-
-    .stTextInput > label {
-        display: none !important;
-    }
-
-    .stTextInput > div > div {
-        min-height: 56px !important;
-        height: auto !important;
-        display: flex !important;
-        align-items: center !important;
-    }
-
-    /* Ensure button container has no extra margin */
+    /* Ensure button container has no extra margin for alignment */
     .stButton {
         margin-bottom: 0 !important;
     }
