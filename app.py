@@ -235,12 +235,6 @@ st.markdown("""
         display: none;
     }
 
-    /* Use monospace font for price numbers in radio buttons for better alignment */
-    .stRadio > div > label > div:last-child {
-        font-variant-numeric: tabular-nums;
-        letter-spacing: 0.02em;
-    }
-
     /* Selectbox - Airbnb style */
     .stSelectbox > label {
         font-size: 0.875rem;
