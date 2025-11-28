@@ -235,6 +235,12 @@ st.markdown("""
         display: none;
     }
 
+    /* Fix radio button text size consistency */
+    .stRadio > div > label > div:last-child {
+        font-size: 0.875rem !important;
+        line-height: 1.2 !important;
+    }
+
     /* Selectbox - Airbnb style */
     .stSelectbox > label {
         font-size: 0.875rem;
