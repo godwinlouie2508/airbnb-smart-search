@@ -78,7 +78,18 @@ st.markdown("""
     [data-testid="stSidebar"] {
         background: #F7F7F7;
         border-right: 1px solid #DDDDDD;
-        padding-top: 2rem;
+        padding-top: 0rem;
+    }
+
+    /* Position SF logo at top-left */
+    [data-testid="stSidebar"] > div:first-child > div:first-child > div:first-child {
+        padding-top: 0 !important;
+        margin-top: 0 !important;
+    }
+
+    [data-testid="stSidebar"] .stImage:first-child {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
     }
 
     [data-testid="stSidebar"] .stMarkdown h2 {
