@@ -915,7 +915,7 @@ def main():
         cluster_descriptions = {
             "All": "All ranges",
             "Budget": f"≤${int(q33)}",
-            "Standard": f"${int(q33)}-${int(q67)}",
+            "Standard": f"${int(q33)}–${int(q67)}",  # Using en-dash for better spacing
             "Luxury": f">${int(q67)}"
         }
 
