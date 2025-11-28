@@ -12,7 +12,7 @@ warnings.filterwarnings('ignore')
 # ============================================================================
 st.set_page_config(
     page_title="Airbnb Smart Search & Price Intelligence",
-    page_icon="Airbnb-Logo.png",
+    page_icon="Airbnb-Emblem.png",
     layout="wide",
     initial_sidebar_state="expanded"
 )
