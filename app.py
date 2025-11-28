@@ -88,12 +88,12 @@ st.markdown("""
 
     /* Search Box - Airbnb style with fully rounded corners and proper height */
     .stTextInput > div > div > input {
-        height: 56px !important;
-        min-height: 56px !important;
+        height: 48px !important;
+        min-height: 48px !important;
         border: 1px solid #DDDDDD !important;
         border-radius: 50px !important;
         padding: 0 24px !important;
-        line-height: 56px !important;
+        line-height: 48px !important;
         font-size: 1rem !important;
         color: #222222 !important;
         box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important;
@@ -110,15 +110,20 @@ st.markdown("""
     /* Target all wrapper divs for rounded corners and height */
     .stTextInput > div > div {
         border-radius: 50px !important;
-        min-height: 56px !important;
+        min-height: 48px !important;
         height: auto !important;
     }
 
     .stTextInput > div {
         border-radius: 50px !important;
-        min-height: 56px !important;
+        min-height: 48px !important;
         height: auto !important;
         margin-bottom: 0 !important;
+    }
+
+    /* Make logo non-clickable */
+    .stImage {
+        pointer-events: none !important;
     }
 
     /* Remove any conflicting borders */
