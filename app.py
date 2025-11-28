@@ -926,15 +926,15 @@ def main():
         st.markdown("**Market Segment**")
         cluster_options = ["All", "Budget", "Standard", "Luxury"]
 
-        # Create labels with explicit dollar signs
+        # Create labels with escaped dollar signs (prevent LaTeX interpretation)
         q33_val = int(q33)
         q67_val = int(q67)
 
         cluster_labels = {
             "All": f"All (All ranges)",
-            "Budget": f"Budget (≤ ${q33_val})",
-            "Standard": f"Standard (${q33_val} – ${q67_val})",
-            "Luxury": f"Luxury (> ${q67_val})"
+            "Budget": f"Budget (≤ \\${q33_val})",
+            "Standard": f"Standard (\\${q33_val} – \\${q67_val})",
+            "Luxury": f"Luxury (> \\${q67_val})"
         }
 
         cluster_filter = st.radio(
