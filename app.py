@@ -927,9 +927,9 @@ def main():
         cluster_options = ["All", "Budget", "Standard", "Luxury"]
         cluster_descriptions = {
             "All": "All ranges",
-            "Budget": f"≤ ${int(q33)}",
-            "Standard": f"${int(q33)} – ${int(q67)}",
-            "Luxury": f"> ${int(q67)}"
+            "Budget": f"≤ \u0024{int(q33)}",
+            "Standard": f"\u0024{int(q33)} – \u0024{int(q67)}",
+            "Luxury": f"> \u0024{int(q67)}"
         }
 
         cluster_filter = st.radio(
