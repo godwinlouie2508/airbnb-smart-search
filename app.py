@@ -143,6 +143,18 @@ st.markdown("""
     .stTextInput > div > div > input {
         height: 48px !important;
         padding: 12px 24px !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Remove extra spacing from input wrapper */
+    .stTextInput > div {
+        margin-bottom: 0 !important;
+    }
+
+    .stTextInput > div > div {
+        min-height: 48px !important;
+        max-height: 48px !important;
+        height: 48px !important;
     }
 
 
@@ -226,6 +238,8 @@ st.markdown("""
         border-radius: 8px !important;
         padding: 12px 24px !important;
         height: 48px !important;
+        min-height: 48px !important;
+        max-height: 48px !important;
         font-weight: 600 !important;
         font-size: 1rem !important;
         border: none !important;
@@ -238,6 +252,7 @@ st.markdown("""
         white-space: nowrap !important;
         text-align: center !important;
         line-height: 1 !important;
+        box-sizing: border-box !important;
     }
 
     .stButton > button:hover {
