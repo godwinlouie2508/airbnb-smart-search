@@ -141,8 +141,8 @@ st.markdown("""
 
     /* Match search input height with button - works in deployed apps */
     .stTextInput > div > div > input {
-        height: 48px !important;
-        line-height: 48px !important;
+        height: 56px !important;
+        line-height: 56px !important;
         padding: 0 24px !important;
         box-sizing: border-box !important;
         font-size: 1rem !important;
@@ -158,9 +158,9 @@ st.markdown("""
     }
 
     .stTextInput > div > div {
-        min-height: 48px !important;
-        max-height: 48px !important;
-        height: 48px !important;
+        min-height: 56px !important;
+        max-height: 56px !important;
+        height: 56px !important;
         overflow: hidden !important;
         display: flex !important;
         align-items: center !important;
