@@ -925,17 +925,22 @@ def main():
         # Cluster filter
         st.markdown("**Market Segment**")
         cluster_options = ["All", "Budget", "Standard", "Luxury"]
-        cluster_descriptions = {
-            "All": "All ranges",
-            "Budget": f"≤ \u0024{int(q33)}",
-            "Standard": f"\u0024{int(q33)} – \u0024{int(q67)}",
-            "Luxury": f"> \u0024{int(q67)}"
+
+        # Create labels with explicit dollar signs
+        q33_val = int(q33)
+        q67_val = int(q67)
+
+        cluster_labels = {
+            "All": f"All (All ranges)",
+            "Budget": f"Budget (≤ ${q33_val})",
+            "Standard": f"Standard (${q33_val} – ${q67_val})",
+            "Luxury": f"Luxury (> ${q67_val})"
         }
 
         cluster_filter = st.radio(
             "Select price range",
             cluster_options,
-            format_func=lambda x: f"{x} ({cluster_descriptions[x]})",
+            format_func=lambda x: cluster_labels[x],
             label_visibility="collapsed"
         )
 
