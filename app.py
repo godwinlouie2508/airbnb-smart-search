@@ -181,6 +181,7 @@ st.markdown("""
         transition: all 0.2s ease;
         font-weight: 500;
         color: #222222;
+        font-size: 0.875rem;
     }
 
     .stRadio > div > label:hover {
@@ -860,9 +861,9 @@ def main():
         cluster_options = ["All", "Budget", "Standard", "Luxury"]
         cluster_descriptions = {
             "All": "All ranges",
-            "Budget": f"≤ ${q33:.0f}",
-            "Standard": f"${q33:.0f} - ${q67:.0f}",
-            "Luxury": f"> ${q67:.0f}"
+            "Budget": f"≤${int(q33)}",
+            "Standard": f"${int(q33)}-${int(q67)}",
+            "Luxury": f">${int(q67)}"
         }
 
         cluster_filter = st.radio(
