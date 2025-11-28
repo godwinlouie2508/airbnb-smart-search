@@ -139,25 +139,40 @@ st.markdown("""
         display: none !important;
     }
 
-    /* Match search input height with button */
+    /* Match search input height with button - works in deployed apps */
     .stTextInput > div > div > input {
-        height: 62px !important;
-        line-height: normal !important;
-        padding: 18px 24px !important;
+        height: 48px !important;
+        line-height: 48px !important;
+        padding: 0 24px !important;
         box-sizing: border-box !important;
         font-size: 1rem !important;
     }
 
-    /* Remove extra spacing from input wrapper */
+    /* Remove extra spacing from input wrapper and label */
     .stTextInput > div {
         margin-bottom: 0 !important;
     }
 
+    .stTextInput > label {
+        display: none !important;
+    }
+
     .stTextInput > div > div {
-        min-height: 62px !important;
-        max-height: 62px !important;
-        height: 62px !important;
+        min-height: 48px !important;
+        max-height: 48px !important;
+        height: 48px !important;
         overflow: hidden !important;
+        display: flex !important;
+        align-items: center !important;
+    }
+
+    /* Ensure button container has no extra margin */
+    .stButton {
+        margin-bottom: 0 !important;
+    }
+
+    .stButton > button {
+        margin: 0 !important;
     }
 
 
@@ -915,7 +930,7 @@ def main():
     # Header with logo and search on same row
     st.markdown('<div style="padding-top: 24px;"></div>', unsafe_allow_html=True)
 
-    col_logo, col_input, col_button = st.columns([1, 4, 0.8], gap="medium", vertical_alignment="bottom")
+    col_logo, col_input, col_button = st.columns([1, 4, 0.8], gap="medium")
 
     with col_logo:
         st.image("Airbnb-Logo.png", width=180)
