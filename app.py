@@ -793,17 +793,6 @@ def display_result_card(row, show_cluster=True):
     cluster_color, cluster_icon = cluster_colors.get(row['cluster'], ('#484848', '📋'))
     value_bg, value_color = value_colors.get(row['value_rating'], ('#F7F7F7', '#484848'))
 
-    # Sentiment
-    sentiment_text = ""
-    if 'mean_vader' in row and pd.notna(row['mean_vader']):
-        sentiment_score = row['mean_vader']
-        sentiment_emoji = "😊" if sentiment_score > 0.5 else "😐" if sentiment_score > -0.1 else "😞"
-        emotion = row.get('dominant_emotion_review', '')
-        if pd.notna(emotion):
-            sentiment_text = f"{sentiment_emoji} {sentiment_score:.2f} · {emotion.capitalize()}"
-        else:
-            sentiment_text = f"{sentiment_emoji} {sentiment_score:.2f}"
-
     # Use st.container with border=True for proper card enclosure
     with st.container(border=True):
         # Savings tag at top right corner
@@ -850,8 +839,6 @@ def display_result_card(row, show_cluster=True):
             st.markdown(f'<div style="font-size: 1.75rem; font-weight: 700; color: #222; margin: 0;">${row["price"]:.0f}</div>', unsafe_allow_html=True)
             st.caption(f"per night")
             st.caption(f"Est. ${row['predicted_price']:.0f}")
-            if sentiment_text:
-                st.caption(sentiment_text)
 
         with divider_col:
             st.markdown(
