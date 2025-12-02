@@ -716,16 +716,29 @@ def classify_value(actual_price, predicted_price):
         return "Good Value"
 
 def predict_price_for_cluster(listing_data, cluster, price_model, model_columns):
-    """Predict price for a listing in a specific cluster"""
+    """Predict price for a listing in a specific cluster with emotion features"""
+    # Get emotion values with defaults
+    emotion_review = listing_data.get('dominant_emotion_review', 'neutral')
+    emotion_listing = listing_data.get('dominant_emotion_listing', 'neutral')
+
     input_data = {
         'accommodates': listing_data['accommodates'],
         'bathrooms': listing_data['bathrooms'],
         'bedrooms': listing_data['bedrooms'],
         'review_scores_rating': listing_data.get('review_scores_rating', 4.5),
         'review_scores_accuracy': listing_data.get('review_scores_accuracy', 4.5),
+        'mean_vader': listing_data.get('mean_vader', 0.5),
         'segment_Budget': 1 if cluster == 'Budget' else 0,
         'segment_Luxury': 1 if cluster == 'Luxury' else 0,
-        'segment_Standard': 1 if cluster == 'Standard' else 0
+        'segment_Standard': 1 if cluster == 'Standard' else 0,
+        # One-hot encode dominant_emotion_review
+        'dominant_emotion_review_fear': 1 if emotion_review == 'fear' else 0,
+        'dominant_emotion_review_joy': 1 if emotion_review == 'joy' else 0,
+        'dominant_emotion_review_neutral': 1 if emotion_review == 'neutral' else 0,
+        # One-hot encode dominant_emotion_listing
+        'dominant_emotion_listing_fear': 1 if emotion_listing == 'fear' else 0,
+        'dominant_emotion_listing_joy': 1 if emotion_listing == 'joy' else 0,
+        'dominant_emotion_listing_neutral': 1 if emotion_listing == 'neutral' else 0,
     }
     X_input = pd.DataFrame([input_data])[model_columns]
     return max(0, price_model.predict(X_input)[0])
