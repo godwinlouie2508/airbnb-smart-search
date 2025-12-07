@@ -992,11 +992,14 @@ def main():
         st.image("Airbnb-Logo.png", width=180)
 
     with col_input:
+        # Use the key directly in session_state instead of value parameter
+        if 'search_input' not in st.session_state:
+            st.session_state.search_input = st.session_state.query
+
         query = st.text_input(
             "🔍 Search for listings",
             placeholder="e.g., cozy apartment near downtown with parking and great views...",
             label_visibility="collapsed",
-            value=st.session_state.query,
             key="search_input"
         )
 
@@ -1119,18 +1122,21 @@ def main():
 
         with col1:
             if st.button("🏙️ Downtown Apartment", use_container_width=True):
+                st.session_state.search_input = "cozy apartment near downtown"
                 st.session_state.query = "cozy apartment near downtown"
                 st.session_state.last_query = "cozy apartment near downtown"
                 st.rerun()
 
         with col2:
             if st.button("🏡 Family Home", use_container_width=True):
+                st.session_state.search_input = "spacious family home with backyard"
                 st.session_state.query = "spacious family home with backyard"
                 st.session_state.last_query = "spacious family home with backyard"
                 st.rerun()
 
         with col3:
             if st.button("🌆 Modern Studio", use_container_width=True):
+                st.session_state.search_input = "modern studio with city views"
                 st.session_state.query = "modern studio with city views"
                 st.session_state.last_query = "modern studio with city views"
                 st.rerun()
