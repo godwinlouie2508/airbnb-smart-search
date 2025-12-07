@@ -1012,13 +1012,6 @@ def main():
     # Update session state with current query
     st.session_state.query = query
 
-    # DEBUG: Show session state (remove this later)
-    with st.expander("🐛 Debug Info", expanded=False):
-        st.write(f"query: '{query}'")
-        st.write(f"last_query: '{st.session_state.get('last_query', '')}'")
-        st.write(f"search_button: {search_button}")
-        st.write(f"pending_search: {st.session_state.get('pending_search', 'None')}")
-
     # Perform search
     # Search triggers when: search button clicked OR query matches last_query (from popular search or manual search)
     should_search = False
