@@ -1007,7 +1007,8 @@ def main():
     st.session_state.query = query
 
     # Perform search
-    if query and (search_button or 'last_query' in st.session_state):
+    # Search triggers when: search button clicked OR query exists (from popular search buttons or previous search)
+    if query and (search_button or query == st.session_state.get('last_query', '')):
         # Store query in session state
         st.session_state.last_query = query
 
@@ -1119,16 +1120,19 @@ def main():
         with col1:
             if st.button("🏙️ Downtown Apartment", use_container_width=True):
                 st.session_state.query = "cozy apartment near downtown"
+                st.session_state.last_query = "cozy apartment near downtown"
                 st.rerun()
 
         with col2:
             if st.button("🏡 Family Home", use_container_width=True):
                 st.session_state.query = "spacious family home with backyard"
+                st.session_state.last_query = "spacious family home with backyard"
                 st.rerun()
 
         with col3:
             if st.button("🌆 Modern Studio", use_container_width=True):
                 st.session_state.query = "modern studio with city views"
+                st.session_state.last_query = "modern studio with city views"
                 st.rerun()
 
         st.markdown('</div>', unsafe_allow_html=True)
