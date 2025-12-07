@@ -985,6 +985,8 @@ def main():
 
     # Check if a popular search was clicked and set the query
     if 'pending_search' in st.session_state and st.session_state.pending_search:
+        # Directly update the search_input widget's session state (safe to set before widget creation)
+        st.session_state['search_input'] = st.session_state.pending_search
         st.session_state.query = st.session_state.pending_search
         st.session_state.pending_search = None
 
@@ -1001,7 +1003,6 @@ def main():
             "🔍 Search for listings",
             placeholder="e.g., cozy apartment near downtown with parking and great views...",
             label_visibility="collapsed",
-            value=st.session_state.query,
             key="search_input"
         )
 
