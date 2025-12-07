@@ -1012,11 +1012,24 @@ def main():
     # Update session state with current query
     st.session_state.query = query
 
+    # DEBUG: Show session state (remove this later)
+    with st.expander("🐛 Debug Info", expanded=False):
+        st.write(f"query: '{query}'")
+        st.write(f"last_query: '{st.session_state.get('last_query', '')}'")
+        st.write(f"search_button: {search_button}")
+        st.write(f"pending_search: {st.session_state.get('pending_search', 'None')}")
+
     # Perform search
-    # Search triggers when: search button clicked OR query exists (from popular search buttons or previous search)
-    if query and (search_button or query == st.session_state.get('last_query', '')):
-        # Store query in session state
-        st.session_state.last_query = query
+    # Search triggers when: search button clicked OR query matches last_query (from popular search or manual search)
+    should_search = False
+    if query:
+        if search_button:
+            should_search = True
+            st.session_state.last_query = query
+        elif query == st.session_state.get('last_query', ''):
+            should_search = True
+
+    if should_search:
 
         with st.spinner('🔍 Searching listings...'):
             results = search_listings(
